@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+<body>
+    <h1>Weather for {{ city_weather.city }}, {{ city_weather.country }}</h1>
+    {% if city_weather.error %}
+        <p>{{ city_weather.error }}</p>
+    {% else %}
+        <p>{{ city_weather.temperature }}°C, {{ city_weather.description }}</p>
+        <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Weather icon">
+    {% endif %}
+
+    <form method="post" action="{% url 'weather' %}">
+        {% csrf_token %}
+        <input type="text" name="city" placeholder="Enter city name">
+        <button type="submit">Get Weather</button>
+    </form>
+<a href="{% url 'attempts' %}">
+    Attempts
+</a>
+</body>
+</html>

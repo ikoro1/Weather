@@ -1,0 +1,3 @@
+This code uses the OpenWeatherMap API to fetch the weather data and display it on a web page.
+
+The API key is obtained from the OpenWeatherMap website.
